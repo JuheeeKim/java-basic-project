@@ -7,7 +7,7 @@
 </br>
 
 ## 💻실행 화면
-### 게시판 메인 화면
+#### 게시판 메인 화면
 <img src="https://github.com/JuheeeKim/spring-basic-project/assets/123529128/9b33368a-b53b-453e-aef8-aa7d9105dfb6"  width="850" height="330"/> </br>
 </br>
 
