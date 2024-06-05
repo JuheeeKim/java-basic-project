@@ -2,7 +2,7 @@
 **[프로젝트 명]** 게시판 프로젝트 </br>
 **[프로젝트 기간]** 2024/5/20 ~ 2024/5/30 </br>
 **[개발 환경]** Java, SpringBoot, InteliJ </br>
-**[기본 기능]** 게시글과 댓글 확인, 생성, 수정, 삭제 기능</br>
+**[기본 기능]** 게시글과 댓글 CRUD(조회, 생성, 수정, 삭제) 기능</br>
 **[참고]** [유튜브 강의](https://www.youtube.com/channel/UCpW1MaTjw4X-2Y6MwAVptcQ) </br>
 </br>
 
@@ -138,8 +138,72 @@ public String edit(@PathVariable("id") Long id, Model model) {
 ```
 
 #### 11 데이터 수정하기
+사용자 데이터 수정 -> 정보가 DTO에 담겨 전달 -> Controller가 Entity로 바꾸어 Repository에게 전달 -> DB를 갱신 </br>
+```java
+@PostMapping("/articles/update")
+public String update(ArticleForm form) {
+
+        // 1: DTO를 엔티티로 변환한다!
+        Article articleEntity = form.toEntity();
+
+        // 2: 엔티티를 DB로 저장한다!
+        // 2-1: DB에서 기존 데이터를 가져온다!
+        Article target = articleRepository.findById(articleEntity.getId()).orElse(null);
+        // 2-2: 기존 데이터가 있다면! 값을 갱신한다!
+        if (target != null) {
+            articleRepository.save(articleEntity); // 엔티티가 DB로 갱신!
+        }
+
+        // 3: 수정 결과 페이지로 리다이렉트 한다!
+        return "redirect:/articles/" + articleEntity.getId();
+}
+```
+
+data.sql에 기본 데이터 삽입
+```sql
+INSERT INTO article(title, content) VALUES ('test 글쓰기1', '댓글 달아주세요1~');
+INSERT INTO article(title, content) VALUES ('test 글쓰기2', '댓글 달아주세요2~');
+INSERT INTO article(title, content) VALUES ('test 글쓰기3', '댓글 달아주세요3~');
+```
+
 #### 12 데이터 삭제하기
+사용자 데이터 삭제-> Controller가 Repository를 통해 -> DB 데이터 삭제 -> 결과 페이지로 리다이렉트 </br>
+```java
+@GetMapping("/articles/{id}/delete")
+public String delete(@PathVariable("id") Long id, RedirectAttributes rttr) {
+        log.info("삭제 요청이 들어왔습니다!!");
+
+        // 1: 삭제 대상을 가져온다!
+        Article target = articleRepository.findById(id).orElse(null);
+
+        // 2: 대상을 삭제 한다!
+        if (target != null) {
+            articleRepository.delete(target);
+            rttr.addFlashAttribute("msg", "삭제가 완료되었습니다!");
+        }
+
+        // 3: 결과 페이지로 리다이렉트 한다!
+        return "redirect:/articles";
+}
+```
+
 #### 13 데이터 CRUD와 SQL 쿼리
+* SQL **Create** 문법 </br>
+```sql
+INSERT INTO article VALUES (1, 'createtitle', 'createcontent');
+```
+* SQL **Read** 문법 </br>
+```sql
+SELECT * FROM article;
+```
+* SQL **Update** 문법 </br>
+```sql
+UPDATE article SET name = 'createtitle';
+```
+* SQL **Delete** 문법 </br>
+```sql
+DELETE FROM article WHERE id=2;
+```
 </br>
 
 ### 📖REST API와 테스트 
