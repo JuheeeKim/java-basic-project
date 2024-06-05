@@ -38,7 +38,7 @@
 
 ### 📖게시글 CRUD
 #### 4 폼 데이터 주고 받기 </br>
-폼 데이터를 컨트롤러에서 받을 때 DTO 객체를 이용해서 받는다. </br>
+폼 데이터를 컨트롤러에서 받을 때 DTO 객체(: 폼 데이터를 받는 객체)를 이용해서 받는다. </br>
 ```java
 public class ArticleForm {
 
@@ -53,19 +53,90 @@ public class ArticleForm {
 
 컨트롤러에서 DTO 데이터를 받아오기 위해서는 파라미터로 DTO를 받아줘야 한다. 
 ```java
- @PostMapping("/articles/create")
-    public String createArticle(ArticleForm form) {
-        ...
-        return "";
-    }
+@PostMapping("/articles/create")
+public String createArticle(ArticleForm form) {
+      ...
+      return "";
+}
 ```
 
 #### 5 데이터 생성 with JPA
+* **JPA**란, 자바 언어를 DB가 이해할 수 있게 하고, 데이터 관리에 편리한 여러 기능들을 제공한다. JPA의 핵심 도구로, Entity와 Repository가 있다. </br>
+* **Entity**란, 자바 객체를 DB가 잘 이해할 수 있게 규격화한 데이터이다. </br>
+* Entity는 **Repository**라는 일꾼을 통해 DB에 전달된다. </br>
+
+```java
+@PostMapping("/articles/create")
+public String createArticle(ArticleForm form) {
+
+        // 1. DTO -> Entity 변환
+        Article article = form.toEntity();
+        
+        // 2. Repository 에게 Entity를 DB안에 저장하게 함
+        Article saved = articleRepository.save(article);
+        return "";
+}
+```
+
 #### 6 DB 테이블과 SQL
+* **CRUD**는 **SQL** 문법에서 **insert**(삽입), **select**(조회), **update**(수정), **delete**(삭제)로 사용된다. </br>
+* 데이터베이스(DB)는 데이터를 테이블 형태로 관리한다. 테이블은 행과 열 형태로 구성된다. </br>
+
 #### 7 데이터 조회하기
+사용자 데이터 요청 -> Controller가 Repository에게 요청 전달 -> DB에게 요청 </br>
+-> Entity로 반환 -> Model을 통해 ViewTemplates으로 전달 -> 결과 페이지 완성 </br>
+```java
+@GetMapping("/articles/{id}")
+public String show(@PathVariable("id") Long id, Model model) {
+
+        // 1: id로 데이터를 엔티티로 가져옴!
+        Article articeEntity = articleRepository.findById(id).orElse(null);
+
+        // 2: 가져온 데이터를 모델에 등록, 뷰로 전달!
+        model.addAttribute("article", articeEntity);
+
+        // 3: 보여줄 페이지를 설정!
+        return "articles/show";
+}
+```
+
 #### 8 데이터 목록조회
+사용자 데이터 요청 -> Controller가 Repository에게 요청 전달 -> DB에게 요청 </br>
+-> Entity묶음(List) 반환 -> Model을 통해 ViewTemplates으로 전달 -> 결과 페이지 완성 </br>
+```java
+@GetMapping("/articles")
+public String index(Model model) {
+        // 1: 모든 Article을 엔티티 묶음으로 가져옴!
+        List<Article> articleEntityList = articleRepository.findAll();
+
+        // 2: 가져온 Article 묶음을 모델에 등록, 뷰로 전달!
+        model.addAttribute("articleList", articleEntityList);
+
+        // 3: 뷰 페이지를 설정!
+        return "articles/index"; // articles/index.mustache
+}
+```
+
 #### 9 링크와 리다이렉트
+* **Link**는 **요청**을 위함이다. </br>
+* **Redirect**는 **응답을 위함**이다. 클라이언트에게 재요청을 지시한다. 재요청을 받은 클라이언트는 주소에 따라 다시 요청을 보낸다. </br>
+* Link와 Redirect를 통해 페이지를 연결할 수 있다. </br>
+
 #### 10 수정 폼 만들기
+```java
+@GetMapping("/articles/{id}/edit")
+public String edit(@PathVariable("id") Long id, Model model) {
+        // 수정할 데이터를 가져오기!
+        Article articleEntity = articleRepository.findById(id).orElse(null);
+
+        // 모델에 데이터를 등록!
+        model.addAttribute("article", articleEntity);
+
+        // 뷰 페이지 설정!
+        return "articles/edit";
+}
+```
+
 #### 11 데이터 수정하기
 #### 12 데이터 삭제하기
 #### 13 데이터 CRUD와 SQL 쿼리
