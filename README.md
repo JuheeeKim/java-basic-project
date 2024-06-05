@@ -190,19 +190,19 @@ public String delete(@PathVariable("id") Long id, RedirectAttributes rttr) {
 #### 13 데이터 CRUD와 SQL 쿼리
 * SQL **Create** 문법 </br>
 ```sql
-INSERT INTO article VALUES (1, 'createtitle', 'createcontent');
+INSERT INTO article VALUES (1, 'createtitle', 'createcontent')
 ```
 * SQL **Read** 문법 </br>
 ```sql
-SELECT * FROM article;
+SELECT * FROM article
 ```
 * SQL **Update** 문법 </br>
 ```sql
-UPDATE article SET name = 'createtitle';
+UPDATE article SET name = 'createtitle' WHERE id = 4
 ```
 * SQL **Delete** 문법 </br>
 ```sql
-DELETE FROM article WHERE id=2;
+DELETE FROM article WHERE id=2
 ```
 </br>
 
