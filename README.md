@@ -213,8 +213,15 @@ DELETE FROM article WHERE id=2
 * **JSON**은 자바스크립트 방식을 차용한 객체 표현식이다. XML보다 JSON을 사용한다. </br>
 
 `Talend API Tester`를 통해 GET, POST, PATCH, DELETE 요청에 대한 JSON 응답을 확인할 수 있다. </br>
+
 #### 15 HTTP와 RestController
+* `@Controller`와 `@RestController`의 차이점 </br>
+* `@Controller`는 Model 객체를 만들어 데이터를 담고 View를 찾는다. </br>
+* `@RestController`는 RestAPI용 컨트롤러이다. 단순히 객체만을 반환하고 JSON 또는 XML 형식으로 HTTP 응답에 담아서 전송한다. </br>
+
 #### 16 서비스와 트랜잭션
+
+
 #### 17 테스트 코드 작성하기
 </br>
 
