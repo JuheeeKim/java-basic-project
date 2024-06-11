@@ -220,9 +220,15 @@ DELETE FROM article WHERE id=2
 * `@RestController`는 RestAPI용 컨트롤러이다. 단순히 객체만을 반환하고 JSON 또는 XML 형식으로 HTTP 응답에 담아서 전송한다. </br>
 
 #### 16 서비스와 트랜잭션
-
+* `Service`란 Controller와 Repository 사이에 위치하는 계층으로서, 처리 업무의 순서를 총괄한다. </br>
+* `Transaction`이란 모두 성공되어야 하는 일련의 과정을 뜻한다. 일련의 과정 중 실패시 초기 단계로 돌아가는 것을 `Rollback`이라 한다. </br>
 
 #### 17 테스트 코드 작성하기
+Given, When, Then으로 명확하게 작성해야 한다. </br>
+* `Given`부분에서 테스트를 진행할 행위를 위해 준비한다. (예상) </br>
+* `When`부분에서 테스트를 진행한다. (실제) </br>
+* `Then`부분에서 테스트를 진행한 행위에 대한 결과를 검증한다. (비교) </br>
+
 </br>
 
 ### 📖댓글 CRUD
