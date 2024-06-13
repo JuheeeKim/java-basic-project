@@ -233,6 +233,38 @@ Given, When, Then으로 명확하게 작성해야 한다. </br>
 
 ### 📖댓글 CRUD
 #### 18 댓글 엔티티와 리파지터리
+`PK(primary key: 기본키)`는 DB 테이블에서 각 행의 정보들을 식별할 수 있는 정보를 표현한다. </br>
+`FK(foreign key:외래키)`는 다른 기본 키를 참조하는 정보를 나타낸다. </br> 
+</br> 
+댓글 엔티티를 작성해주고, data.sql에 댓글 엔티티 속성에 맞는 더미 데이터도 추가해준다. </br>
+```java
+@Entity
+@Getter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+public class Comment {
+    @Id
+    private Long id;
+
+    @ManyToOne // 해당 댓글 엔티티 여러개가, 하나의 Article에 연관된다!
+    @JoinColumn(name = "article_id") // "article_id" 컬럼에 Article의 대표값을 저장!
+    private Article article;
+
+    @Column
+    private String nickname;
+
+    @Column
+    private String body;
+}
+```
+
+```sql
+INSERT INTO comment(article_id, nickname, body) VALUES (4, 'Park', '굿 윌 헌팅');
+INSERT INTO comment(article_id, nickname, body) VALUES (4, 'Kim', '타이타닉');
+INSERT INTO comment(article_id, nickname, body) VALUES (4, 'Lee', '범죄도시');
+```
+
 #### 19 댓글 서비스와 컨트롤러
 #### 20 댓글 목록 뷰 만들기
 #### 21 댓글 등록 with JS
