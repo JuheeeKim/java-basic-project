@@ -266,15 +266,60 @@ INSERT INTO comment(article_id, nickname, body) VALUES (4, 'Lee', '범죄도시'
 ```
 
 #### 19 댓글 서비스와 컨트롤러
-#### 20 댓글 목록 뷰 만들기
-#### 21 댓글 등록 with JS
-#### 22 댓글 수정 with JS
-#### 23 댓글 삭제 with JS
+`@RestController`를 이용해 댓글 CRUD를 구현했다. </br>
+
+```java
+// 댓글 목록 조회
+@GetMapping("/api/articles/{articleId}/comments")
+public ResponseEntity<List<CommentDto>> comments(@PathVariable("articleId") Long articleId) {
+        // 서비스에게 위임
+        List<CommentDto> dtos = commentService.comments(articleId);
+
+        // 결과 응답
+        return ResponseEntity.status(HttpStatus.OK).body(dtos);
+}
+```
+```java
+// 댓글 생성
+@PostMapping("/api/articles/{articleId}/comments")
+public ResponseEntity<CommentDto> create(@PathVariable("articleId") Long articleId,
+                                             @RequestBody CommentDto dto) {
+        // 서비스에게 위임
+        CommentDto createdDto = commentService.create(articleId, dto);
+        // 결과 응답
+        return ResponseEntity.status(HttpStatus.OK).body(createdDto);
+}
+```
+```java
+// 댓글 수정
+@PatchMapping("/api/comments/{id}")
+public ResponseEntity<CommentDto> update(@PathVariable("id") Long id,
+                                             @RequestBody CommentDto dto) {
+        // 서비스에게 위임
+        CommentDto updatedDto = commentService.update(id, dto);
+        // 결과 응답
+        return ResponseEntity.status(HttpStatus.OK).body(updatedDto);
+}
+```
+```java
+// 댓글 삭제
+@DeleteMapping("/api/comments/{id}")
+    public ResponseEntity<CommentDto> delete(@PathVariable("id") Long id) {
+        // 서비스에게 위임
+        CommentDto updatedDto = commentService.delete(id);
+        // 결과 응답
+        return ResponseEntity.status(HttpStatus.OK).body(updatedDto);
+}
+```
+
+#### 20 댓글 등록 with JS
+#### 21 댓글 수정 with JS
+#### 22 댓글 삭제 with JS
 </br>
 
 ### 📖더 나아가기
-#### 24 DB 연동하기
-#### 25 IoC와 DI
-#### 26 AOP, 관점지향 프로그래밍
-#### 27 ObjectMapper, JSON 변환
+#### 23 DB 연동하기
+#### 24 IoC와 DI
+#### 25 AOP, 관점지향 프로그래밍
+#### 26 ObjectMapper, JSON 변환
 </br>
