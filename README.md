@@ -266,7 +266,7 @@ INSERT INTO comment(article_id, nickname, body) VALUES (4, 'Lee', '범죄도시'
 ```
 
 #### 19 댓글 서비스와 컨트롤러
-`@RestController`를 이용해 댓글 CRUD를 구현했다. </br>
+`@RestController`를 이용해 댓글 CRUD를 구현한다. </br>
 
 ```java
 // 댓글 목록 조회
@@ -319,7 +319,73 @@ public ResponseEntity<CommentDto> update(@PathVariable("id") Long id,
 
 ### 📖더 나아가기
 #### 23 DB 연동하기
+`PostgreSQL`를 설치하고, DB를 연동한다. </br>
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/basicproject_db
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+```
+
 #### 24 IoC와 DI
+**IoC**란 `Inversion of Control`의 줄임말이며, 제어의 역전이라고 한다. </br>
+* 스프링 애플리케이션에서는 오브젝트(빈)의 생성과 의존 관계 설정, 사용, 제거 등의 작업을 애플리케이션 코드 대신 스프링 컨테이너가 담당한다. </br>
+* 이를 스프링 컨테이너가 코드 대신 오브젝트에 대한 제어권을 갖고 있다고 해서 IoC라고 부른다. </br>
+* 따라서, 스프링 컨테이너를 IoC 컨테이너라고도 부른다. </br>
+
+**DI**란 `Dependency Injection`의 줄임말이며, 의존 관계 주입 혹은 의존성 주입이라 불린다. </br>
+* DI는 외부에서 객체 간의 관계(의존성)를 결정해 주는데 즉, 객체를 직접 생성하는 것이 아니라 외부에서 생성 후 주입시켜 주는 방식이라 할 수 있다. </br>
+* DI를 통해 객체 간의 관계를 동적으로 주입하여 유연성을 확보하고 결합도를 낮출 수 있다. </br>
+
 #### 25 AOP, 관점지향 프로그래밍
+**AOP**는 관점을 기준으로 묶어 개발하는 방식을 의미한다. </br>
+여기서 관점이란 어떤 기능을 구현할 때 그 기능을 `핵심 기능`과 `부가 기능`으로 구분해 각각 하나의 관점으로 보는 것을 의미한다. </br>
+
+**Advice**는 실질적으로 어떤 일을 해야할 지에 대한 것, 실질적인 부가기능을 담은 구현체이다. </br>
+* `@Before` : 메소드 실행 전에 동작을 수행하는 Advice </br>
+* `@After` : 메서드 실행 후에 동작을 수행하는 Advice </br>
+* `@AfterReturning` : 메서드가 성공적으로 반환된 후에 동작을 수행하는 Advice </br>
+* `@AfterThrowing` : 메서드에서 예외가 발생한 후에 동작을 수행하는 Advice </br>
+* `@Around` : 메서드 실행 전후에 동작을 수행하며, 메서드 실행을 직접 제어하는 Advice </br>
+
 #### 26 ObjectMapper, JSON 변환
+```java
+@Test
+public void 자바_객체를_JSON으로_변환() throws JsonProcessingException {
+        // 준비
+        ObjectMapper objectMapper = new ObjectMapper();
+        ...
+
+        // 수행
+        String json = objectMapper.writeValueAsString(burger);
+
+        // 예상
+        String expected = "{\"name\":\"맥도날드\",\"price\":5500,\"ingredients\":[\"통새우 패티\",\"고기 패티\",\"토마토\",\"소스\"]}";
+
+        // 검증
+        assertEquals(expected, json);
+        JsonNode jsonNode = objectMapper.readTree(json);
+        System.out.println(jsonNode.toPrettyString());
+}
+```
+```java
+@Test
+public void JSON을_자바_객체로_변환() throws JsonProcessingException {
+        // 준비
+        ObjectMapper objectMapper = new ObjectMapper();
+        ...
+
+        // 수행
+        Burger burger = objectMapper.readValue(json, Burger.class);
+
+        // 예상
+        List<String> ingredients = Arrays.asList("통새우 패티", "고기 패티", "토마토", "소스");
+        Burger expected = new Burger("맥도날드", 5500, ingredients);
+
+        // 검증
+        assertEquals(expected.toString(), burger.toString());
+        JsonNode jsonNode = objectMapper.readTree(json);
+        System.out.println(jsonNode.toPrettyString());
+        System.out.println(burger.toString());
+}
+```
 </br>
