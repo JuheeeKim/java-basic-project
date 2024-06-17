@@ -171,7 +171,6 @@ INSERT INTO article(title, content) VALUES ('test 글쓰기3', '댓글 달아주
 ```java
 @GetMapping("/articles/{id}/delete")
 public String delete(@PathVariable("id") Long id, RedirectAttributes rttr) {
-        log.info("삭제 요청이 들어왔습니다!!");
 
         // 1: 삭제 대상을 가져온다!
         Article target = articleRepository.findById(id).orElse(null);
