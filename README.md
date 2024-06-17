@@ -11,7 +11,7 @@
 <img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/7d60ff29-07ba-4c4f-97e7-e3f45521aef9"  width="800" height="330"/> </br>
 
 #### 게시판 글쓰기 화면
-<img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/1008eea3-5179-4128-8851-dfaec41d7a9a"  width="800" height="300"/> </br>
+<img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/f06e60d8-d91f-4c5f-9e21-ee8d514f69c6"  width="800" height="300"/> </br>
 </br>
 
 
