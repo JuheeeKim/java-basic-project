@@ -8,8 +8,12 @@
 
 ## 💻실행 화면
 #### 게시판 메인 화면
-<img src="https://github.com/JuheeeKim/spring-basic-project/assets/123529128/9b33368a-b53b-453e-aef8-aa7d9105dfb6"  width="850" height="330"/> </br>
+<img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/1008eea3-5179-4128-8851-dfaec41d7a9a"  width="850" height="330"/> </br>
+
+#### 게시판 글쓰기 화면
+<img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/1008eea3-5179-4128-8851-dfaec41d7a9a"  width="780" height="300"/> </br>
 </br>
+
 
 ## ✏️프로젝트에 활용한 이론 정리
 ### 📖모델, 뷰, 컨트롤러
