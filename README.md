@@ -12,6 +12,7 @@
 
 #### 게시판 글쓰기 화면
 <img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/f06e60d8-d91f-4c5f-9e21-ee8d514f69c6"  width="800" height="300"/> </br>
+<img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/0559c2f1-e111-40ee-b945-5f8375f10ba9"  width="800" height="300"/> </br>
 </br>
 
 
