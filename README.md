@@ -8,12 +8,19 @@
 
 ## 💻실행 화면
 #### 게시판 메인 화면
-<img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/7d60ff29-07ba-4c4f-97e7-e3f45521aef9"  width="800" height="330"/> </br>
+<img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/7d60ff29-07ba-4c4f-97e7-e3f45521aef9"  width="850" height="300"/> </br>
 
 #### 게시판 글쓰기 화면
-<img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/f06e60d8-d91f-4c5f-9e21-ee8d514f69c6"  width="800" height="300"/> </br>
-<img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/0559c2f1-e111-40ee-b945-5f8375f10ba9"  width="800" height="300"/> </br>
-</br>
+<img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/f06e60d8-d91f-4c5f-9e21-ee8d514f69c6"  width="850" height="300"/> </br>
+<img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/0559c2f1-e111-40ee-b945-5f8375f10ba9"  width="850" height="300"/> </br>
+
+#### 게시글 수정 화면
+<img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/b8fb4fcf-f7bf-4d80-8a02-c625a01ea961"  width="850" height="300"/> </br>
+<img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/e6a3275c-3065-47e7-9223-f1cb5a9ce8bb"  width="850" height="300"/> </br>
+
+#### 게시글 삭제 화면
+<img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/8e7db312-0d39-4911-94eb-ea3cb80242e7"  width="850" height="300"/> </br>
+
 
 
 ## ✏️프로젝트에 활용한 이론 정리
