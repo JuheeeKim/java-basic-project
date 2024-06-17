@@ -273,7 +273,6 @@ INSERT INTO comment(article_id, nickname, body) VALUES (4, 'Lee', '범죄도시'
 public ResponseEntity<List<CommentDto>> comments(@PathVariable("articleId") Long articleId) {
         // 서비스에게 위임
         List<CommentDto> dtos = commentService.comments(articleId);
-
         // 결과 응답
         return ResponseEntity.status(HttpStatus.OK).body(dtos);
 }
