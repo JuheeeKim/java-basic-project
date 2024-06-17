@@ -12,6 +12,7 @@
 
 #### 게시글 추가 화면
 <img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/f06e60d8-d91f-4c5f-9e21-ee8d514f69c6"  width="850" height="300"/> </br>
+<img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/32864a16-d356-473f-878d-85b50bb94640"  width="850" height="300"/> </br>
 
 #### 게시글 수정 화면
 <img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/b8fb4fcf-f7bf-4d80-8a02-c625a01ea961"  width="850" height="300"/> </br>
@@ -30,6 +31,7 @@
 
 #### 댓글 삭제 화면
 <img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/fe0799f9-b086-4d64-8da8-71005d51b4c5"  width="850" height="300"/> </br>
+</br>
 
 ## ✏️프로젝트에 활용한 이론 정리
 ### 📖모델, 뷰, 컨트롤러
