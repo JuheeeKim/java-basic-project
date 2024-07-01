@@ -10,7 +10,7 @@
 #### 게시판 메인 화면
 <img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/7d60ff29-07ba-4c4f-97e7-e3f45521aef9"  width="850" height="300"/> </br>
 
-#### 게시글 추가 화면 (new Article)
+#### 게시글 추가 화면 - New Article
 <img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/f06e60d8-d91f-4c5f-9e21-ee8d514f69c6"  width="850" height="250"/> </br>
 <img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/32864a16-d356-473f-878d-85b50bb94640"  width="850" height="300"/> </br>
 
