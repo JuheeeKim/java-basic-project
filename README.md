@@ -21,10 +21,10 @@
 #### 댓글 메인 화면
 <img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/7be1f265-dc69-46ae-b4b2-224f3554fabe"  width="850" height="400"/> </br>
 
-#### 댓글 추가 화면
+#### 댓글 추가 화면 - 댓글 작성
 <img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/58e2303e-a735-487e-8a79-56ecfc16a1d6"  width="850" height="200"/> </br>
 
-#### 댓글 수정 및 삭제 화면 
+#### 댓글 수정 및 삭제 화면 - edit, delete
 <img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/d1f567e0-f989-4faf-84f3-251a847d454e"  width="350" height="200"/> </br>
 <img src="https://github.com/JuheeeKim/spring-board-service/assets/123529128/fe0799f9-b086-4d64-8da8-71005d51b4c5"  width="850" height="300"/> </br>
 </br>
